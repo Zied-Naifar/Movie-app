@@ -8,15 +8,20 @@ export class addCard extends Component {
     this.state = {
       modal: false
     };
-
     this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
+handleInput =(e)=>{
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+}
+
+toggle() {
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
-  }
+}
 
 
   render() {
@@ -27,17 +32,17 @@ export class addCard extends Component {
           <ModalHeader toggle={this.toggle}>Add a new Movie</ModalHeader>
           <ModalBody>
             <Label className='label-form' for="image-src">Movie image source:</Label>
-            <Input className='input-form' id="image-src" plaintext placeholder='movie src' />
+            <Input name="img" onChange={this.handleInput}className='input-form' id="image-src" plaintext placeholder='movie src' />
 
             <Label for="image-name">Movie name:</Label>
-            <Input className='input-form' id="image-name" plaintext placeholder='Movie name' />
+            <Input name="name" onChange={this.handleInput} className='input-form' id="image-name" plaintext placeholder='Movie name' />
 
             <Label for="image-description">Movie description:</Label>
-            <Input className='input-form' id="image-description" plaintext placeholder='Movie name' />
+            <Input name="description" onChange={this.handleInput} className='input-form' id="image-description" plaintext placeholder='Movie name' />
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Add</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="primary" onClick={() => this.props.triggerAdd(this.state)}>Add</Button>
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>,
           </ModalFooter>
         </Modal>
       </div>
