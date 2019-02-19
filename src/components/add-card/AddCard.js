@@ -32,13 +32,16 @@ toggle() {
           <ModalHeader toggle={this.toggle}>Add a new Movie</ModalHeader>
           <ModalBody>
             <Label className='label-form' for="image-src">Movie image source:</Label>
-            <Input name="img" onChange={this.handleInput}className='input-form' id="image-src" plaintext placeholder='movie src' />
+            <Input name="img" onChange={this.handleInput}className='input-form' plaintext placeholder='movie src' />
 
             <Label for="image-name">Movie name:</Label>
-            <Input name="name" onChange={this.handleInput} className='input-form' id="image-name" plaintext placeholder='Movie name' />
+            <Input name="name" onChange={this.handleInput} className='input-form' plaintext placeholder='Movie name' />
 
             <Label for="image-description">Movie description:</Label>
-            <Input name="description" onChange={this.handleInput} className='input-form' id="image-description" plaintext placeholder='Movie name' />
+            <Input name="description" onChange={this.handleInput} className='input-form' plaintext placeholder='Movie name' />
+
+            <Label for="movie-rating">Movie rating:</Label>
+            <Input name="rating" onChange={this.handleInput} className='input-form' plaintext placeholder='Movie rating' />
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={() => this.props.triggerAdd(this.state)}>Add</Button>

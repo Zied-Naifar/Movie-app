@@ -4,6 +4,12 @@
     align-items: center;
 }
 
+.header{
+    display: flex;
+    justify-content: start; 
+    align-items: center;
+}
+
 .movie-container{
     padding: 10px;
     margin: 10px;
